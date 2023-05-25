@@ -1,0 +1,262 @@
+@use "./../../../assets/style/var.scss";
+
+
+  $--clr-black: #1c1c1c;
+  $--clr-gray: #ececec;
+  $--clr-white: #f7f7f7;
+
+  $--type-normal: #A8A878;
+  $--type-fire: #F08030;
+  $--type-water: #6890F0;
+  $--type-grass: #78C850;
+  $--type-electric: #F8D030;
+  $--type-ice: #98D8D8;
+  $--type-fighting: #C03028;
+  $--type-poison: #A040A0;
+  $--type-ground: #E0C068;
+  $--type-flying: #A890F0;
+  $--type-psychic: #F85888;
+  $--type-bug: #A8B820;
+  $--type-rock: #B8A038;
+  $--type-ghost: #705898;
+  $--type-dark: #705848;
+  $--type-dragon: #7038F8;
+  $--type-steel: #B8B8D0;
+  $--type-fairy: #F0B6BC;
+
+
+#container {
+  height: 600px;
+  width: 95vw;
+  border-radius: 0 50px 50px 0;
+  display: grid;
+  grid-template-columns: 1fr 0.01fr;
+  justify-content: space-between;
+  font-size: x-large;
+  border: solid 2px #f4e4a6;
+  border-left: unset;
+}
+
+#datos {
+  display: grid;
+  grid-template-rows: 1fr 3fr 3fr;
+  align-items: center;
+  .area {
+    padding-left: 55vw;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    p{
+      margin: 10px 10px;
+    }
+  }
+  .area:first-child {
+    display: grid;
+    flex-grow: 1;
+    background-color: #bfc3ce;
+    background-image: linear-gradient(45deg, #c3c5c4 25%, transparent 25%, transparent 75%, #c3c5c4 75%, #c3c5c4),
+    linear-gradient(-45deg, #c3c5c4 25%, transparent 25%, transparent 75%, #c3c5c4 75%, #c3c5c4);
+    background-size: 20px 20px;
+
+  }
+  .area:nth-child(2) {
+    background-color: #d3ecf6;
+    background-image: linear-gradient(45deg, #c4e8f8 25%, transparent 25%, transparent 75%, #c4e8f8 75%, #c4e8f8),
+    linear-gradient(-45deg, #c4e8f8 25%, transparent 25%, transparent 75%, #c4e8f8 75%, #c4e8f8);
+    background-size: 20px 20px;
+
+  }
+  .area:last-child {
+    background: repeating-linear-gradient(
+      0deg,
+      #cce486,
+      #cce486 2px,
+      #bfd678 2px,
+      #bfd678 4px,
+    );
+
+  }
+    .etiqueta {
+      background-color: #68bcea;
+      display: inline-block;
+      width: 150px;
+      margin: 5px 0;
+      text-align: center;
+      border-radius: 4px;
+      color: white;
+      margin-right: 20px;
+    }
+    .solo-tipos{
+      display: flex;
+    }
+
+    .pokemon-tipos {
+      display: flex;
+      gap: .5rem;
+      font-size: .75rem;
+      font-weight: 500;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .tipo {
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: medium;
+      text-transform: uppercase;
+}
+  #info {
+    padding: 20px;
+    p{
+      color:var.$texto;
+    }
+  }
+
+  #descripcionContainer {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    background-color: #f8f7db;
+    padding: 5px;
+    border-radius: 15px;
+    height: 80%;
+    p{
+      margin: 10px 5px;
+      color:var.$texto;
+    }
+    div {
+      background-color: #d6edc3;
+      margin: 5px;
+    }
+    #descipcionPrincipio {
+      border-radius: 0 8px 8px 0;
+    }
+    #descripcionFinal {
+      border-radius: 8px 0 0 8px;
+    }
+  }
+}
+button {
+  background-color: var.$principal;
+  border: unset;
+  cursor: pointer;
+  border-radius: 0 45px 45px 0;
+  img {
+    height: 100px;
+    transition: 0.3s;
+    &.girar {
+      rotate: 180deg;
+    }
+    &:hover{
+      scale: 1.1;
+    }
+  }
+}
+
+#backdrop{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  z-index:-1;
+}
+
+.escondido{
+  pointer-events: none;
+  opacity: 0;
+}
+
+
+
+.normal {
+  background-color:$--type-normal;
+  color: $--clr-black;
+}
+
+.fire {
+  background-color: $--type-fire;
+  color:$--clr-black;
+}
+
+.water {
+  background-color:$--type-water;
+  color: $--clr-white;
+}
+
+.grass {
+  background-color: $--type-grass;
+  color: $--clr-black;
+}
+
+.electric {
+  background-color: $--type-electric;
+  color: $--clr-black;
+}
+
+.ice {
+  background-color: $--type-ice;
+  color: $--clr-black;
+}
+
+.fighting {
+  background-color: $--type-fighting;
+  color: $--clr-white;
+}
+
+.poison {
+  background-color: $--type-poison;
+  color: $--clr-white;
+}
+
+.ground {
+  background-color: $--type-ground;
+  color: $--clr-black;
+}
+
+.flying {
+  background-color: $--type-flying;
+  color: $--clr-black;
+}
+
+.psychic {
+  background-color: $--type-psychic;
+  color: $--clr-black;
+}
+
+.bug {
+  background-color: $--type-bug;
+  color: $--clr-black;
+}
+
+.rock {
+  background-color: $--type-rock;
+  color: $--clr-black;
+}
+
+.ghost {
+  background-color: $--type-ghost;
+  color: $--clr-white;
+}
+
+.dark {
+  background-color: $--type-dark;
+  color: $--clr-white;
+}
+
+.dragon {
+  background-color: $--type-dragon;
+  color: $--clr-white;
+}
+
+.steel {
+  background-color: $--type-steel;
+  color: $--clr-black;
+}
+
+.fairy {
+  background-color: $--type-fairy;
+  color: $--clr-black;
+}
